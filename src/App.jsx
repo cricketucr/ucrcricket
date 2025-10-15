@@ -1,7 +1,7 @@
-import CricketWebsite from './CricketWebsite'
+import CricketWebsite from './CricketWebsite';
 
 function App() {
-  return <CricketWebsite />
+  return <CricketWebsite />;
 }
 
-export default App
+export default App;
