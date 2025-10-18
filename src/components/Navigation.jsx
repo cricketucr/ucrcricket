@@ -5,14 +5,7 @@ import reactLogo from '../assets/ucrcricket.svg';
 export const Navigation = ({ currentPage, onPageChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const pages = [
-    'home',
-    'roster',
-    'coaching',
-    'timeline',
-    'sponsor',
-    'contact',
-  ];
+  const pages = ['home', 'roster', 'coaching', 'timeline', 'sponsor', 'contact'];
 
   return (
     <nav className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">

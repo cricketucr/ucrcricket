@@ -20,7 +20,9 @@ export const CoachingPage = () => (
               </div>
               <div className="flex-1">
                 <h3 className="text-lg md:text-xl font-bold text-white mb-1">{coach.name}</h3>
-                <p className="text-amber-500 font-semibold mb-3 text-sm md:text-base">{coach.role}</p>
+                <p className="text-amber-500 font-semibold mb-3 text-sm md:text-base">
+                  {coach.role}
+                </p>
                 <div className="space-y-1 text-sm">
                   <div className="text-slate-400">
                     <span className="font-medium">Specialty:</span> {coach.spec}

@@ -10,7 +10,11 @@ export const HomePage = ({ onPageChange }) => (
         <div className="text-center">
           <div className="inline-block mb-6">
             <div className="flex items-center justify-center mx-auto">
-              <img src={reactLogo} alt="UCR Cricket" className="w-24 h-24 md:w-40 md:h-40 rounded-full bg-transparent" />
+              <img
+                src={reactLogo}
+                alt="UCR Cricket"
+                className="w-24 h-24 md:w-40 md:h-40 rounded-full bg-transparent"
+              />
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
