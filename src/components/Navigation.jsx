@@ -1,13 +1,13 @@
 import React from 'react';
-import reactLogo from '../assets/react.svg';
+import reactLogo from '../assets/ucrcricket.svg';
 
 export const Navigation = ({ currentPage, onPageChange }) => (
   <nav className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
     <div className="max-w-7xl mx-auto px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
-            <img src={reactLogo} alt="UCR Cricket" className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-full flex items-center justify-center">
+            <img src={reactLogo} alt="UCR Cricket" className="w-12 h-12 rounded-full" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-white">UCR Cricket</h1>

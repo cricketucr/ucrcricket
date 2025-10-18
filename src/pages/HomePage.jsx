@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Star, Clock } from 'lucide-react';
-import reactLogo from '../assets/react.svg';
+import reactLogo from '../assets/ucrcricket.svg';
 
 export const HomePage = ({ onPageChange }) => (
   <div className="min-h-screen bg-slate-950">
@@ -9,8 +9,8 @@ export const HomePage = ({ onPageChange }) => (
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center">
           <div className="inline-block mb-6">
-            <div className="w-32 h-32 bg-amber-500 rounded-full flex items-center justify-center mx-auto">
-              <img src={reactLogo} alt="UCR Cricket" className="w-16 h-16" />
+            <div className="flex items-center justify-center mx-auto">
+              <img src={reactLogo} alt="UCR Cricket" className="w-40 h-40 rounded-full bg-transparent" />
             </div>
           </div>
           <h1 className="text-6xl font-bold text-white mb-4">
@@ -43,7 +43,7 @@ export const HomePage = ({ onPageChange }) => (
           //   { label: 'Championships', value: '12', icon: Users },
           { label: 'Active Players', value: '15', icon: Users },
           //   { label: 'Matches Won', value: '156', icon: Star },
-          { label: 'Years Active', value: '25', icon: Clock },
+          { label: 'Year(s) Active', value: '1', icon: Clock },
         ].map((stat, idx) => (
           <div
             key={idx}
