@@ -3,9 +3,9 @@ import React from 'react';
 export const RosterPage = () => (
   <div className="min-h-screen bg-slate-950 py-12">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-col items-center justify-center h-96">
-        <h1 className="text-6xl font-bold text-white mb-4">Coming Soon</h1>
-        <p className="text-xl text-slate-400 text-center">
+      <div className="flex flex-col items-center justify-center h-96 px-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-center">Coming Soon</h1>
+        <p className="text-base md:text-xl text-slate-400 text-center">
           We're updating our team roster. Check back soon!
         </p>
       </div>
