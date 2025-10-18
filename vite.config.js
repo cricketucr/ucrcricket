@@ -10,4 +10,9 @@ export default defineConfig({
   preview: {
     port: 5173,
   },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
+  publicDir: 'public',
 })
