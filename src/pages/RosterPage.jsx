@@ -1,73 +1,45 @@
 import React from 'react';
 
-export const RosterPage = () => (
-  <div className="min-h-screen bg-slate-950 py-12">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-col items-center justify-center h-96 px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-center">Coming Soon</h1>
-        <p className="text-base md:text-xl text-slate-400 text-center">
-          We're updating our team roster. Check back soon!
-        </p>
-      </div>
+export const RosterPage = () => {
+  const allPlayers = [
+    { name: 'Khrish Patel', role: 'Captain- Batsman / Wicket Keeper' },
+    { name: 'Tarun Vadapalli', role: 'Vice Captain- All-Rounder' },
+    { name: 'Abhishek Laungani', role: 'Batsman' },
+    { name: 'Vishv Mepani', role: 'Batsman' },
+    { name: 'Maalik Ashter', role: 'Bowler' },
+    { name: 'Yash Samineni', role: 'Bowler' },
+    { name: 'Aditya Saptarshi', role: 'Bowler' },
+    { name: 'Dev Shroff', role: 'All-Rounder Batsman' },
+    { name: 'Himanshu Rao', role: 'All Rounder Batsman' },
+    { name: 'Dev Bhakta', role: 'All-Rounder Bowler' },
+    { name: 'Siddharth Thatavarthy', role: 'All-Rounder' },
+    { name: 'Sathvik Kumar', role: 'All-Rounder' },
+  ];
 
-      {/* 
-      <h1 className="text-4xl font-bold text-white mb-8">Team Roster</h1>
+  return (
+    <div className="min-h-screen bg-slate-950 py-12 px-4 md:px-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Team Roster</h1>
 
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-amber-500 mb-6">Batsmen</h2>
-        <div className="grid grid-cols-3 gap-6">
-          {[{ name: 'Khrish Patel' }, { name: 'Abhishek Laungani' }].map((player, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-              <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-2xl mb-4">
-                👤
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
+            {allPlayers.map((player, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-900 border border-slate-800 rounded-xl p-8 md:p-10 text-center hover:border-amber-500 transition-all"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-slate-800 rounded-full flex items-center justify-center text-4xl md:text-5xl mb-6 mx-auto">
+                  👤
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{player.name}</h3>
+                <p className="text-amber-500 font-semibold text-sm md:text-base leading-relaxed">
+                  {player.role}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{player.name}</h3>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-amber-500 mb-6">Bowlers</h2>
-        <div className="grid grid-cols-3 gap-6">
-          {[{ name: 'Maalik Ashter' }, { name: 'Yash Samineni' }, { name: 'Aditya Saptarshi' }].map((player, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-              <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-2xl mb-4">
-                👤
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{player.name}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h2 className="text-2xl font-bold text-amber-500 mb-6">All-Rounders</h2>
-        <div className="grid grid-cols-3 gap-6">
-          {[{ name: 'Siddharth Thatavarthy' }, { name: 'Sathvik Kumar' }, { name: 'Tarun Vadapalli' }].map((player, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-              <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-2xl mb-4">
-                👤
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{player.name}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold text-amber-500 mb-12">Wicket Keeper</h2>
-        <div className="grid grid-cols-3 gap-6">
-          {[{ name: 'Khrish Patel' }].map((player, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-              <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-2xl mb-4">
-                👤
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{player.name}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-      */}
     </div>
-  </div>
-);
+  );
+};

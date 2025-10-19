@@ -67,7 +67,9 @@ export const HomePage = ({ onPageChange }) => (
         {[
           { name: 'Khrish Patel', role: 'Captain', img: '👤' },
           { name: 'Tarun Vadapalli', role: 'Vice Captain', img: '👤' },
+          { name: 'Siddharth Thatavarthy', role: 'Secretary', img: '👤' },
           { name: 'Jia Panchal', role: 'Team Manager', img: '👤' },
+          { name: 'Hiya Patel', role: 'Social Media Manager', img: '👤' },
         ].map((leader, idx) => (
           <div
             key={idx}
