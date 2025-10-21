@@ -4,16 +4,18 @@ export const RosterPage = () => {
   const allPlayers = [
     { name: 'Khrish Patel', role: 'Captain- Batsman / Wicket Keeper' },
     { name: 'Tarun Vadapalli', role: 'Vice Captain- All-Rounder' },
-    { name: 'Abhishek Laungani', role: 'Batsman' },
-    { name: 'Vishv Mepani', role: 'Batsman' },
-    { name: 'Maalik Ashter', role: 'Bowler' },
-    { name: 'Yash Samineni', role: 'Bowler' },
-    { name: 'Aditya Saptarshi', role: 'Bowler' },
-    { name: 'Dev Shroff', role: 'All-Rounder Batsman' },
-    { name: 'Himanshu Rao', role: 'All Rounder Batsman' },
-    { name: 'Dev Bhakta', role: 'All-Rounder Bowler' },
     { name: 'Siddharth Thatavarthy', role: 'All-Rounder' },
+    { name: 'Abhi Tatavarty', role: 'Batsman' },
+    { name: 'Ilhaan', role: 'All-Rounder Batsman' },
+    { name: 'Himanshu Rao', role: 'All Rounder Batsman' },
     { name: 'Sathvik Kumar', role: 'All-Rounder' },
+    { name: 'Yash Samineni', role: 'Bowler' },
+    { name: 'Vishv Mepani', role: 'Batsman' },
+    { name: 'Dev Shroff', role: 'All-Rounder Batsman' },
+    { name: 'Aditya Saptarshi', role: 'Bowler' },
+    { name: 'Dev Bhakta', role: 'All-Rounder Bowler' },
+    { name: 'Maalik Ashter', role: 'Bowler' },
+    { name: 'Abhishek Laungani', role: 'Batsman' },
   ];
 
   return (
