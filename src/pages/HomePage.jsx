@@ -71,6 +71,7 @@ export const HomePage = ({ onPageChange }) => (
           { name: 'Jia Panchal', role: 'Team Manager', img: '👤' },
           { name: 'Hiya Patel', role: 'Social Media Manager', img: '👤' },
           { name: 'YogaShikhar Marella', role: 'Editor', img: '👤' },
+          { name: 'Advaith Tontalapur', role: 'Developer/Photographer', img: '👤' },
         ].map((leader, idx) => (
           <div
             key={idx}
