@@ -12,6 +12,11 @@ export const CoachingPage = () => (
             role: 'Fast Bowler',
             spec: 'Bowling & Strategy',
           },
+          {
+            name: 'Arjun M',
+            role: 'Gymnast',
+            spec: 'Fitness & Agility',
+          },
         ].map((coach, idx) => (
           <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6">
             <div className="flex flex-col sm:flex-row items-start space-x-0 sm:space-x-4 space-y-4 sm:space-y-0">
