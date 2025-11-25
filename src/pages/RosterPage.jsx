@@ -10,13 +10,13 @@ export const RosterPage = () => {
     { name: 'Himanshu Rao', role: 'All Rounder Batsman' },
     { name: 'Muhammad Hassan', role: 'All Rounder Bowler' },
     { name: 'Shriyansh Annam', role: 'Bowler' },  
-    { name: 'Dev Bhakta', role: 'All-Rounder Bowler' },
-    { name: 'Yash Samineni', role: 'Bowler' },
+    { name: 'Dev Bhakta', role: 'Bowler' },
+    { name: 'Yash Samineni', role: 'All Rounder' },
     { name: 'Khush Patel', role: 'Bowler' },
     { name: 'Kush Prajapati', role: 'Bowler' },
     { name: 'Sathvik Kumar', role: 'All-Rounder' },
     { name: 'Vishv Mepani', role: 'Batsman' },
-    { name: 'Arslan Sheik', role: 'All-Rounder Batsman' },
+    { name: 'Arslan Sheik', role: 'Bowler' },
   ];
 
   return (
