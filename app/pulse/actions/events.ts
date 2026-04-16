@@ -23,6 +23,24 @@ function getEventAt(formData: FormData) {
     throw new Error("Date and time are required.");
   }
 
+  const timezoneOffsetMinutesRaw = (formData.get("timezoneOffsetMinutes") as string | null)?.trim();
+  if (timezoneOffsetMinutesRaw) {
+    const dateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+    const timeMatch = /^(\d{2}):(\d{2})$/.exec(time);
+    const timezoneOffsetMinutes = Number.parseInt(timezoneOffsetMinutesRaw, 10);
+    if (!dateMatch || !timeMatch || Number.isNaN(timezoneOffsetMinutes)) {
+      throw new Error("Invalid date or time.");
+    }
+    const year = Number.parseInt(dateMatch[1]!, 10);
+    const month = Number.parseInt(dateMatch[2]!, 10);
+    const day = Number.parseInt(dateMatch[3]!, 10);
+    const hour = Number.parseInt(timeMatch[1]!, 10);
+    const minute = Number.parseInt(timeMatch[2]!, 10);
+    const utcMs = Date.UTC(year, month - 1, day, hour, minute);
+    const eventAt = new Date(utcMs + timezoneOffsetMinutes * 60_000);
+    return eventAt.toISOString();
+  }
+
   const eventAt = new Date(`${date}T${time}`);
   if (Number.isNaN(eventAt.getTime())) {
     throw new Error("Invalid date or time.");
@@ -184,9 +202,12 @@ export async function updateEvent(formData: FormData) {
   const location = (formData.get("location") as string | null)?.trim() || null;
   const description = (formData.get("description") as string | null)?.trim() || null;
   const notes = (formData.get("notes") as string | null)?.trim() || null;
-  const newEventAtMs = new Date(eventAt).getTime();
-  const sourceEventAtMs = new Date(sourceEvent.event_at).getTime();
-  const shiftMs = newEventAtMs - sourceEventAtMs;
+  const newEventAtDate = new Date(eventAt);
+  const sourceEventAtDate = new Date(sourceEvent.event_at);
+  const newEventAtMs = newEventAtDate.getTime();
+  const sourceEventAtMs = sourceEventAtDate.getTime();
+  const startOfUtcDay = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+  const dayShiftMs = startOfUtcDay(newEventAtDate) - startOfUtcDay(sourceEventAtDate);
   const recurrenceSeriesId = recurrence.frequency === "none" ? null : sourceEvent.recurrence_series_id;
 
   if (!sourceEvent.recurrence_series_id || scope === "single") {
@@ -230,8 +251,10 @@ export async function updateEvent(formData: FormData) {
   }
 
   const updateRows = (targets ?? []).map((target) => {
-    const shiftedMs = new Date(target.event_at).getTime() + shiftMs;
-    const shiftedAt = new Date(shiftedMs).toISOString();
+    const targetDate = new Date(target.event_at);
+    const shiftedDate = new Date(targetDate.getTime() + dayShiftMs);
+    shiftedDate.setUTCHours(newEventAtDate.getUTCHours(), newEventAtDate.getUTCMinutes(), newEventAtDate.getUTCSeconds(), newEventAtDate.getUTCMilliseconds());
+    const shiftedAt = shiftedDate.toISOString();
     return {
       id: target.id,
       title,

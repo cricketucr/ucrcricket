@@ -39,6 +39,23 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
 
   const handleSubmit = (formData: FormData) => {
     setErrorMessage(null);
+    const dateValue = (formData.get("date") as string | null)?.trim();
+    const timeValue = (formData.get("time") as string | null)?.trim();
+    if (dateValue && timeValue) {
+      const [yearRaw, monthRaw, dayRaw] = dateValue.split("-");
+      const [hoursRaw, minutesRaw] = timeValue.split(":");
+      const year = Number.parseInt(yearRaw ?? "", 10);
+      const month = Number.parseInt(monthRaw ?? "", 10);
+      const day = Number.parseInt(dayRaw ?? "", 10);
+      const hours = Number.parseInt(hoursRaw ?? "", 10);
+      const minutes = Number.parseInt(minutesRaw ?? "", 10);
+      if (Number.isInteger(year) && Number.isInteger(month) && Number.isInteger(day) && Number.isInteger(hours) && Number.isInteger(minutes)) {
+        const localDate = new Date(year, month - 1, day, hours, minutes, 0, 0);
+        if (!Number.isNaN(localDate.getTime())) {
+          formData.set("timezoneOffsetMinutes", String(localDate.getTimezoneOffset()));
+        }
+      }
+    }
     startTransition(async () => {
       try {
         await action(formData);
