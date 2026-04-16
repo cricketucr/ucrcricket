@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const pages = ["home", "roster", "coaching", "timeline", "sponsor", "contact"] as const;
+const pages = ["home", "roster", "coaching", "timeline", "sponsor", "contact", "pulse"] as const;
 
 function getHref(page: string) {
   return page === "home" ? "/" : `/${page}`;
@@ -18,6 +18,7 @@ export function Navigation() {
 
   function isActive(page: string) {
     if (page === "home") return pathname === "/";
+    if (page === "pulse") return pathname.startsWith("/pulse");
     return pathname === `/${page}`;
   }
 
