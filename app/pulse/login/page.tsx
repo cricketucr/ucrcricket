@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { startGoogleSignIn } from "@pulse/app/actions/auth";
 import { getProfile, getSessionUser } from "@pulse/lib/auth/session";
+import { ensurePulsePath } from "@pulse/lib/routing";
 import { Button } from "@pulse/components/ui/button";
 import { Card } from "@pulse/components/ui/card";
 
@@ -12,7 +13,7 @@ type LoginPageProps = {
 export default async function LoginPage({ searchParams }: LoginPageProps) {
   const user = await getSessionUser();
   const params = await searchParams;
-  const next = params.next?.startsWith("/") ? params.next : "/pulse/dashboard";
+  const next = ensurePulsePath(params.next);
 
   if (user) {
     const profile = await getProfile(user.id);
