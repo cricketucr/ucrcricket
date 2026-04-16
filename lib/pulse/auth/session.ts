@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
+import { ensurePulsePath } from "@pulse/lib/routing";
 import { createClient } from "@pulse/lib/supabase/server";
 
 export async function getSessionUser() {
@@ -13,7 +14,7 @@ export async function getSessionUser() {
 export async function requireUser(redirectTo = "/pulse/login") {
   const user = await getSessionUser();
   if (!user) {
-    redirect(redirectTo);
+    redirect(ensurePulsePath(redirectTo, "/pulse/login"));
   }
   return user;
 }

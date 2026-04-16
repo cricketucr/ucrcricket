@@ -6,14 +6,10 @@ import { revalidatePath } from "next/cache";
 
 import { createClient } from "@pulse/lib/supabase/server";
 import { requireUser } from "@pulse/lib/auth/session";
-
-function sanitizeNextPath(next: string | null) {
-  if (!next || !next.startsWith("/")) return "/pulse/dashboard";
-  return next;
-}
+import { ensurePulsePath } from "@pulse/lib/routing";
 
 export async function startGoogleSignIn(formData: FormData) {
-  const nextPath = sanitizeNextPath((formData.get("next") as string | null) ?? null);
+  const nextPath = ensurePulsePath((formData.get("next") as string | null) ?? null);
   const origin = (await headers()).get("origin");
 
   if (!origin) throw new Error("Could not determine request origin.");
