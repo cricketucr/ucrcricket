@@ -1,81 +1,146 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Users, Clock } from "lucide-react";
+import { FadeUp } from "@/components/ui/fade-up";
+import { StaggerContainer, StaggerItem } from "@/components/ui/stagger";
+import { AnimatedCounter } from "@/components/ui/count-up";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-950">
-      <div className="relative bg-slate-900 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 py-12 md:py-24">
-          <div className="text-center">
-            <div className="inline-block mb-6">
-              <Image
-                src="/ucrcricket.svg"
-                alt="UCR Cricket"
-                width={160}
-                height={160}
-                className="rounded-full mx-auto w-24 h-24 md:w-40 md:h-40"
-              />
+    <div className="min-h-screen bg-pitch">
+      {/* Hero */}
+      <div className="relative overflow-hidden bg-pitch">
+        {/* Accent diagonal backdrop */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent/5 via-accent/2 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/40" />
+        {/* Vertical accent line */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent hidden lg:block" />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-28">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center gap-12 lg:gap-0">
+            {/* Left: Text */}
+            <div className="flex-1 lg:pr-12">
+              <FadeUp delay={0.05}>
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-6 h-px bg-accent" />
+                  <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em]">UC Riverside Cricket Team</span>
+                </div>
+              </FadeUp>
+
+              <FadeUp delay={0.12}>
+                <h1 className="font-display leading-none mb-6">
+                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-white">GRIND.</span>
+                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-accent">HUSTLE.</span>
+                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-white">WIN.</span>
+                </h1>
+              </FadeUp>
+
+              <FadeUp delay={0.22}>
+                <p className="text-muted text-base md:text-lg mb-10 max-w-md leading-relaxed">
+                  Building champions on and off the pitch through dedication, teamwork, and excellence.
+                </p>
+              </FadeUp>
+
+              <FadeUp delay={0.3}>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href="/roster"
+                    className="inline-block bg-accent text-pitch font-bold uppercase tracking-[0.15em] text-sm px-8 py-4 hover:bg-accent-dim transition-all duration-200 active:scale-[0.98]"
+                  >
+                    Meet The Squad
+                  </Link>
+                  <Link
+                    href="/sponsor"
+                    className="inline-block border border-line text-white font-semibold uppercase tracking-[0.15em] text-sm px-8 py-4 hover:border-accent hover:text-accent transition-all duration-200 active:scale-[0.98]"
+                  >
+                    Support Us
+                  </Link>
+                </div>
+              </FadeUp>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              <span className="text-amber-500">UCR</span> Cricket
-            </h1>
-            <p className="text-base md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto px-4">
-              Building champions on and off the pitch through dedication, teamwork, and excellence
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
-              <Link
-                href="/roster"
-                className="bg-amber-500 text-slate-900 px-6 md:px-8 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-all"
-              >
-                Meet The Team
-              </Link>
-              <Link
-                href="/sponsor"
-                className="bg-slate-800 text-white px-6 md:px-8 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-              >
-                Support Us
-              </Link>
-            </div>
+
+            {/* Right: Logo */}
+            <FadeUp delay={0.15} className="shrink-0">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-accent/10 scale-110 blur-2xl" />
+                <div className="relative border-2 border-accent/30 rounded-full p-3">
+                  <Image
+                    src="/ucrcricket.svg"
+                    alt="UCR Cricket"
+                    width={200}
+                    height={200}
+                    className="rounded-full w-36 h-36 md:w-48 md:h-48 lg:w-56 lg:h-56"
+                  />
+                </div>
+                {/* Rotating ring */}
+                <div className="absolute inset-0 rounded-full border border-accent/20 scale-125" />
+              </div>
+            </FadeUp>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {[
-            { label: "Active Players", value: "15", icon: Users },
-            { label: "Year(s) Active", value: "1", icon: Clock },
-          ].map((stat, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center">
-              <stat.icon className="w-8 h-8 text-amber-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-slate-400 text-sm">{stat.label}</div>
-            </div>
-          ))}
+      {/* Stats */}
+      <div className="border-y border-line bg-crease">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 divide-x divide-line">
+            {[
+              { label: "Active Players", value: 15, icon: Users },
+              { label: "Year(s) Active", value: 1, icon: Clock },
+            ].map((stat, idx) => (
+              <FadeUp key={idx} delay={idx * 0.1}>
+                <div className="py-10 px-6 md:px-12 text-center group">
+                  <stat.icon className="w-5 h-5 text-accent mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="font-display text-6xl md:text-7xl text-white mb-1">
+                    <AnimatedCounter target={stat.value} />
+                  </div>
+                  <div className="text-muted text-xs uppercase tracking-[0.2em] font-semibold">{stat.label}</div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">Leadership</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Leadership */}
+      <div className="w-full bg-pitch">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <FadeUp>
+            <div className="flex items-center gap-4 mb-14">
+              <div className="w-1 h-10 bg-accent" />
+              <div>
+                <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">The People Behind It</p>
+                <h2 className="font-display text-4xl md:text-5xl text-white tracking-wider">LEADERSHIP</h2>
+              </div>
+            </div>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-px w-full">
           {[
             { name: "Khrish Patel", role: "Captain" },
             { name: "Tarun Vadapalli", role: "Vice Captain" },
+            { name: "Himanshu Rao", role: "Walk On Captain" },
+            { name: "Yash Samineni", role: "Walk On Captain" },
             { name: "Siddharth Thatavarthy", role: "Secretary" },
             { name: "Jia Panchal", role: "Team Manager" },
-            { name: "Advaith Tontalapur", role: "Developer/Photographer" },
+            { name: "Advaith Tontalapur", role: "Developer / Photographer" },
             { name: "Hiya Patel", role: "Social Media Manager" },
             { name: "YogaShikhar Marella", role: "Editor" },
           ].map((leader, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6 text-center hover:border-amber-500 transition-all">
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-slate-800 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
-                👤
+            <StaggerItem key={idx}>
+              <div className="group bg-pitch p-8 hover:bg-crease transition-all duration-300 cursor-default relative">
+                <div className="absolute left-0 top-0 bottom-0 w-0 bg-accent group-hover:w-1 transition-all duration-300" />
+                <div className="w-16 h-16 bg-boundary border border-line flex items-center justify-center text-2xl mb-5 group-hover:border-accent/50 transition-all duration-300">
+                  👤
+                </div>
+                <h3 className="font-display text-xl md:text-2xl text-white tracking-wide mb-1 group-hover:text-accent transition-colors duration-300">
+                  {leader.name}
+                </h3>
+                <p className="text-muted text-xs uppercase tracking-[0.2em] font-semibold">{leader.role}</p>
               </div>
-              <h3 className="text-lg md:text-xl font-bold text-white mb-1">{leader.name}</h3>
-              <p className="text-amber-500 font-medium text-sm md:text-base">{leader.role}</p>
-            </div>
+            </StaggerItem>
           ))}
+        </StaggerContainer>
         </div>
       </div>
     </div>

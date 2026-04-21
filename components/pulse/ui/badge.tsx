@@ -5,17 +5,17 @@ type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
 };
 
 const VARIANT_STYLES: Record<NonNullable<BadgeProps["variant"]>, string> = {
-  default: "bg-slate-800 text-slate-300",
-  success: "bg-emerald-900/60 text-emerald-400",
-  warning: "bg-amber-900/60 text-amber-400",
-  danger: "bg-red-900/60 text-red-400",
+  default: "border border-line text-muted",
+  success: "border border-success/30 text-success bg-success/10",
+  warning: "border border-pulse-warning/30 text-pulse-warning bg-pulse-warning/10",
+  danger: "border border-danger/30 text-danger bg-danger/10",
 };
 
 export function Badge({ className, variant = "default", ...props }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-2 py-1 text-xs font-medium",
+        "inline-flex items-center px-2 py-0.5 text-xs font-semibold uppercase tracking-widest",
         VARIANT_STYLES[variant],
         className,
       )}

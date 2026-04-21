@@ -74,19 +74,19 @@ export function EventCard({
     <Card
       className={
         isPrimary
-          ? "space-y-4 border-4 !border-emerald-500 shadow-lg"
+          ? "space-y-4 border-l-2 border-l-success border-t border-r border-b border-line bg-crease"
           : isDimmed
-            ? "space-y-4 border-transparent bg-slate-800"
+            ? "space-y-4 border-transparent bg-boundary opacity-70"
             : "space-y-4 border-transparent"
       }
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold text-white">{event.title}</h3>
-          <p className="text-sm text-slate-400">{formatDateTime(event.event_at)}</p>
-          {recurrenceLabel ? <p className="text-xs text-slate-500">{recurrenceLabel}</p> : null}
+          <h3 className="font-display text-xl tracking-wide text-white">{event.title}</h3>
+          <p className="text-xs text-muted mt-0.5">{formatDateTime(event.event_at)}</p>
+          {recurrenceLabel ? <p className="text-xs text-muted/60">{recurrenceLabel}</p> : null}
           {event.location ? (
-            <p className="mt-1 text-sm text-slate-500">{event.location}</p>
+            <p className="mt-1 text-xs text-muted uppercase tracking-widest">{event.location}</p>
           ) : null}
         </div>
         <Badge variant={isLocked ? "warning" : "success"}>
@@ -95,15 +95,15 @@ export function EventCard({
       </div>
 
       {event.description ? (
-        <details className="rounded-md border border-slate-700 bg-slate-800 p-3">
-          <summary className="cursor-pointer text-sm font-medium text-slate-300">
+        <details className="border border-line bg-boundary p-3">
+          <summary className="cursor-pointer text-xs uppercase tracking-widest font-semibold text-muted hover:text-white transition-colors duration-200">
             Description
           </summary>
-          <p className="mt-2 text-sm text-slate-400">{event.description}</p>
-          {event.notes ? <p className="mt-2 text-sm text-slate-500">{event.notes}</p> : null}
+          <p className="mt-2 text-sm text-muted">{event.description}</p>
+          {event.notes ? <p className="mt-2 text-xs text-muted/60">{event.notes}</p> : null}
         </details>
       ) : event.notes ? (
-        <p className="text-sm text-slate-500">{event.notes}</p>
+        <p className="text-xs text-muted">{event.notes}</p>
       ) : null}
 
       <VotePanel
@@ -116,7 +116,7 @@ export function EventCard({
       />
 
       {isAdmin ? (
-        <div className="flex flex-wrap gap-2 border-t border-slate-800 pt-3">
+        <div className="flex flex-wrap gap-2 border-t border-line pt-3">
           <Modal title="Edit event" triggerLabel="Edit event">
             <EventForm
               groupId={groupId}
@@ -157,7 +157,7 @@ export function EventCard({
                     id={`delete-scope-${event.id}`}
                     name="editScope"
                     defaultValue="single"
-                    className="h-10 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+                    className="h-10 w-full border border-line bg-boundary text-white px-3 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200"
                   >
                     <option value="single">This event only</option>
                     <option value="following">This and following events</option>

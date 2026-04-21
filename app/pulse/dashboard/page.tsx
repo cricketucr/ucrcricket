@@ -1,10 +1,12 @@
+import Link from "next/link";
+import { Settings } from "lucide-react";
+
 import { requireProfile, requireUser } from "@pulse/lib/auth/session";
 import { getUserGroups } from "@pulse/lib/db/queries";
 import { GroupLinkCard } from "@pulse/components/dashboard/group-link-card";
 import { NewGroupModal } from "@pulse/components/dashboard/new-group-modal";
 import { Card } from "@pulse/components/ui/card";
 import { TimedToast } from "@pulse/components/ui/timed-toast";
-import { TopNav } from "@pulse/components/top-nav";
 
 type DashboardPageProps = {
   searchParams?: Promise<{ reason?: string }>;
@@ -19,26 +21,28 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
 
   return (
     <>
-      <TopNav name={profile.name} />
       {showNotMemberMessage ? (
         <TimedToast
           message="Access denied, you are not a member of that group. If you think this is a mistake, please contact a group admin."
           clearQueryParamOnHide="reason"
         />
       ) : null}
-      <main className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6">
+      <main className="mx-auto w-full max-w-5xl space-y-8 px-4 py-8">
         <section className="flex flex-wrap items-end justify-between gap-3">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-white">Your groups</h1>
-            <p className="text-sm text-slate-400">Create a group, invite people, and run polls on upcoming events.</p>
-          </div>
+          <Link
+            href="/pulse/settings"
+            aria-label="Open settings"
+            className="inline-flex h-10 w-10 items-center justify-center border border-line bg-crease text-muted transition-all duration-200 hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            <Settings className="h-4 w-4" />
+          </Link>
           <NewGroupModal />
         </section>
 
         <section className="grid gap-3 sm:grid-cols-2">
           {memberships.length === 0 ? (
             <Card className="sm:col-span-2">
-              <p className="text-sm text-slate-400">No groups yet. Create one or ask an admin to share an invite link.</p>
+              <p className="text-xs text-muted uppercase tracking-widest">No groups yet. Create one or ask an admin to share an invite link.</p>
             </Card>
           ) : null}
           {memberships.map((membership) => {

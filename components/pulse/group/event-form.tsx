@@ -76,14 +76,14 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
       {event ? <input type="hidden" name="eventId" value={event.id} /> : null}
       {event && event.recurrence_series_id ? (
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="editScope">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="editScope">
             Apply changes to
           </label>
           <select
             id="editScope"
             name="editScope"
             defaultValue="single"
-            className="h-10 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+            className="h-10 w-full border border-line bg-boundary text-white px-3 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200"
           >
             <option value="single">This event only</option>
             <option value="following">This and following events</option>
@@ -94,7 +94,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
         <input type="hidden" name="editScope" value="single" />
       )}
 
-      <label className="block text-sm font-medium text-slate-300" htmlFor="title">
+      <label className="block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="title">
         Title
       </label>
       <Input
@@ -107,7 +107,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
 
       <div className="grid gap-3 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="date">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="date">
             Date
           </label>
           <Input
@@ -119,7 +119,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="time">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="time">
             Time
           </label>
           <Input
@@ -132,8 +132,8 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
         </div>
       </div>
 
-      <div className="space-y-2 rounded-md border border-slate-700 p-3">
-        <label className="block text-sm font-medium text-slate-300" htmlFor="recurrenceFrequency">
+      <div className="space-y-2 border border-line p-3">
+        <label className="block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="recurrenceFrequency">
           Repeat
         </label>
         <select
@@ -141,7 +141,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
           name="recurrenceFrequency"
           value={frequency}
           onChange={(event) => setFrequency(event.target.value as (typeof RECURRING_FREQUENCIES)[number])}
-          className="h-10 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+          className="h-10 w-full border border-line bg-boundary text-white px-3 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200"
         >
           {RECURRING_FREQUENCIES.map((option) => (
             <option key={option} value={option}>
@@ -157,7 +157,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
         {frequency !== "none" ? (
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="recurrenceInterval">
+              <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="recurrenceInterval">
                 Every
               </label>
               <Input
@@ -171,7 +171,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="recurrenceEndType">
+              <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="recurrenceEndType">
                 Ends
               </label>
               <select
@@ -179,7 +179,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
                 name="recurrenceEndType"
                 value={endType}
                 onChange={(event) => setEndType(event.target.value as (typeof RECURRING_END_TYPES)[number])}
-                className="h-10 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+                className="h-10 w-full border border-line bg-boundary text-white px-3 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200"
               >
                 {RECURRING_END_TYPES.map((option) => (
                   <option key={option} value={option}>
@@ -199,7 +199,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
 
         {frequency === "weekly_custom" ? (
           <div>
-            <p className="mb-1 block text-sm font-medium text-slate-300">Days of week</p>
+            <p className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted">Days of week</p>
             <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
               {[
                 { value: 0, label: "Sun" },
@@ -212,7 +212,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
               ].map((day) => (
                 <label
                   key={day.value}
-                  className="flex items-center gap-2 rounded-md border border-slate-700 px-2 py-1 text-sm text-slate-300"
+                  className="flex items-center gap-2 border border-line px-2 py-1 text-xs text-muted hover:border-accent/30 hover:text-white transition-all duration-200 cursor-pointer"
                 >
                   <input
                     type="checkbox"
@@ -229,7 +229,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
 
         {frequency !== "none" && endType === "on_date" ? (
           <div>
-            <label className="mb-1 block text-sm font-medium text-slate-300" htmlFor="recurrenceUntilDate">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="recurrenceUntilDate">
               Repeat until
             </label>
             <Input
@@ -243,7 +243,7 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
         ) : null}
       </div>
 
-      <label className="block text-sm font-medium text-slate-300" htmlFor="location">
+      <label className="block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="location">
         Location
       </label>
       <Input
@@ -253,27 +253,27 @@ export function EventForm({ groupId, action, submitLabel, event, onSuccess }: Ev
         defaultValue={event?.location ?? ""}
       />
 
-      <label className="block text-sm font-medium text-slate-300" htmlFor="description">
+      <label className="block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="description">
         Description
       </label>
       <textarea
         id="description"
         name="description"
         defaultValue={event?.description ?? ""}
-        className="min-h-20 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 py-2 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+        className="min-h-20 w-full border border-line bg-boundary text-white px-3 py-2 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200 placeholder:text-muted"
       />
 
-      <label className="block text-sm font-medium text-slate-300" htmlFor="notes">
+      <label className="block text-xs font-semibold uppercase tracking-widest text-muted" htmlFor="notes">
         Notes
       </label>
       <textarea
         id="notes"
         name="notes"
         defaultValue={event?.notes ?? ""}
-        className="min-h-20 w-full rounded-md border border-slate-700 bg-slate-800 text-white px-3 py-2 text-sm outline-none focus:border-slate-600 focus:ring-2 focus:ring-slate-700"
+        className="min-h-20 w-full border border-line bg-boundary text-white px-3 py-2 text-sm outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all duration-200 placeholder:text-muted"
       />
 
-      {errorMessage ? <p className="text-sm text-red-600">{errorMessage}</p> : null}
+      {errorMessage ? <p className="text-xs text-danger border-l-2 border-danger pl-3 py-1">{errorMessage}</p> : null}
 
       <Button type="submit" className="w-full" disabled={isPending}>
         {submitLabel}

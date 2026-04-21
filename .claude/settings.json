@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket show f803b55 -- components/navigation.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket show f803b55 -- app/pulse/layout.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/navigation.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- app/pulse/layout.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/top-nav.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/ui/button.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/ui/card.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/ui/input.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/ui/modal.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/ui/badge.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- package.json)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- app/globals.css)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- app/pulse/login/page.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- app/pulse/dashboard/page.tsx)",
+      "Bash(git -C /Users/advaithtontalapur/Documents/Projects/cricket/ucrcricket diff HEAD~1 HEAD -- components/pulse/group/event-card.tsx)"
+    ]
+  }
+}

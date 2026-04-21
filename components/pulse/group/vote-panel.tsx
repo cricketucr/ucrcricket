@@ -87,20 +87,20 @@ export function VotePanel({ groupId, eventId, isLocked, currentUserId, currentUs
           </Button>
         ))}
       </div>
-      {optimisticAction.errorMessage ? <p className="text-sm text-red-400">{optimisticAction.errorMessage}</p> : null}
-      <div className="grid gap-3 text-sm sm:grid-cols-3">
-        <div>
-          <p className="font-medium text-slate-300">Yes ({voteSummary.yes.length})</p>
-          <p className="text-slate-400">{voteSummary.yes.map((p) => p.name).join(", ") || "No votes"}</p>
-        </div>
-        <div>
-          <p className="font-medium text-slate-300">No ({voteSummary.no.length})</p>
-          <p className="text-slate-400">{voteSummary.no.map((p) => p.name).join(", ") || "No votes"}</p>
-        </div>
-        <div>
-          <p className="font-medium text-slate-300">Maybe ({voteSummary.maybe.length})</p>
-          <p className="text-slate-400">{voteSummary.maybe.map((p) => p.name).join(", ") || "No votes"}</p>
-        </div>
+      {optimisticAction.errorMessage ? <p className="text-xs text-danger border-l-2 border-danger pl-3 py-1">{optimisticAction.errorMessage}</p> : null}
+      <div className="grid gap-3 sm:grid-cols-3 pt-1">
+        {[
+          { label: "Yes", votes: voteSummary.yes },
+          { label: "No", votes: voteSummary.no },
+          { label: "Maybe", votes: voteSummary.maybe },
+        ].map(({ label, votes }) => (
+          <div key={label} className="border-l-2 border-line pl-3">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-0.5">
+              {label} <span className="text-accent">({votes.length})</span>
+            </p>
+            <p className="text-xs text-muted/70">{votes.map((p) => p.name).join(", ") || "—"}</p>
+          </div>
+        ))}
       </div>
     </>
   );
