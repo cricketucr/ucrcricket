@@ -1,14 +1,11 @@
 import { Instagram } from "lucide-react";
 import { Navigation } from "@/components/navigation";
-import { PageTransition } from "@/components/ui/page-transition";
 
 export default function CricketLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-pitch">
       <Navigation />
-      <PageTransition>
-        {children}
-      </PageTransition>
+      {children}
       <footer className="bg-crease border-t-2 border-line mt-20">
         <div className="max-w-7xl mx-auto px-6 py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
