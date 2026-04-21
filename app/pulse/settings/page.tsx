@@ -6,7 +6,6 @@ import { Button } from "@pulse/components/ui/button";
 import { Card } from "@pulse/components/ui/card";
 import { Input } from "@pulse/components/ui/input";
 import { TimedToast } from "@pulse/components/ui/timed-toast";
-import { TopNav } from "@pulse/components/top-nav";
 
 export const metadata: Metadata = { title: "Settings · Pulse" };
 
@@ -22,7 +21,6 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps) 
 
   return (
     <>
-      <TopNav name={profile.name} showDashboardButton />
       {showSavedToast ? (
         <TimedToast message="Your profile was updated." clearQueryParamOnHide="saved" />
       ) : null}

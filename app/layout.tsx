@@ -19,6 +19,7 @@ const barlow = Barlow({
 export const metadata: Metadata = {
   title: "UCR Cricket",
   description: "UCR Cricket Club",
+  
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -18,6 +18,7 @@ export default function RosterPage() {
     { name: "Sathvik Kumar", role: "All-Rounder", spec: null },
     { name: "Vishv Mepani", role: "Batsman", spec: null },
     { name: "Arslan Sheik", role: "Bowler", spec: null },
+    { name: "Aditya Saptarshi", role: "Bowler", spec: null },
   ];
 
   return (

@@ -6,7 +6,6 @@ import { requireProfile, requireUser } from "@pulse/lib/auth/session";
 import { DeleteGroupForm } from "@pulse/components/group/delete-group-form";
 import { InvitePanel } from "@pulse/components/group/invite-panel";
 import { MemberList } from "@pulse/components/group/member-list";
-import { TopNav } from "@pulse/components/top-nav";
 import { Card } from "@pulse/components/ui/card";
 
 type GroupSettingsPageProps = {
@@ -27,7 +26,6 @@ export default async function GroupSettingsPage({ params }: GroupSettingsPagePro
 
   return (
     <>
-      <TopNav name={profile.name} showDashboardButton />
       <GroupRealtimeSync groupId={groupId} includeInvites />
       <main className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6">
         <section className="flex flex-wrap items-center justify-between gap-3">

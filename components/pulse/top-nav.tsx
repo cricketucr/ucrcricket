@@ -11,9 +11,16 @@ import { Button } from "@pulse/components/ui/button";
 type TopNavProps = {
   name: string;
   showDashboardButton?: boolean;
+  pageTitle?: string;
+  pageSubtitle?: string;
 };
 
-export function TopNav({ name, showDashboardButton = false }: TopNavProps) {
+export function TopNav({
+  name,
+  showDashboardButton = false,
+  pageTitle,
+  pageSubtitle,
+}: TopNavProps) {
   const router = useRouter();
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement | null>(null);
@@ -101,14 +108,6 @@ export function TopNav({ name, showDashboardButton = false }: TopNavProps) {
                 role="menu"
                 className="absolute right-0 top-[calc(100%+0.5rem)] z-20 min-w-40 border border-line bg-crease p-1 shadow-xl"
               >
-                <Link
-                  href="/pulse/settings"
-                  role="menuitem"
-                  className="block px-3 py-2 text-xs uppercase tracking-widest text-muted transition-all duration-200 hover:bg-boundary hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
-                  onClick={() => setIsProfileMenuOpen(false)}
-                >
-                  Settings
-                </Link>
                 <form action={signOut}>
                   <button
                     type="submit"
@@ -124,6 +123,20 @@ export function TopNav({ name, showDashboardButton = false }: TopNavProps) {
           </AnimatePresence>
         </div>
       </div>
+
+      {pageTitle ? (
+        <div className="mx-auto w-full max-w-5xl px-4 pb-5">
+          <div className="space-y-1">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-0.5 bg-accent" />
+              <h1 className="font-display text-3xl tracking-wider text-white">{pageTitle}</h1>
+            </div>
+            {pageSubtitle ? (
+              <p className="pl-3.5 text-xs uppercase tracking-widest text-muted">{pageSubtitle}</p>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 }

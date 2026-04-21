@@ -9,7 +9,6 @@ import { EventsList } from "@pulse/components/group/events-list";
 import { EventForm } from "@pulse/components/group/event-form";
 import { GroupRealtimeSync } from "@pulse/components/group/group-realtime-sync";
 import { MemberList } from "@pulse/components/group/member-list";
-import { TopNav } from "@pulse/components/top-nav";
 import { Button } from "@pulse/components/ui/button";
 import { Card } from "@pulse/components/ui/card";
 import { Modal } from "@pulse/components/ui/modal";
@@ -35,7 +34,6 @@ export default async function GroupPage({ params }: GroupPageProps) {
 
   return (
     <>
-      <TopNav name={profile.name} showDashboardButton />
       <GroupRealtimeSync groupId={groupId} eventIds={groupData.events.map((event) => event.id)} includeVotes />
       <main className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6">
         <section className="flex flex-wrap items-center justify-between gap-3">

@@ -49,10 +49,10 @@ export function Navigation() {
               <Link
                 key={page}
                 href={getHref(page)}
-                className={`relative px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-200 ${
+                className={`px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-200 border-b-2 ${
                   isActive(page)
-                    ? "bg-accent text-pitch"
-                    : "text-muted hover:text-white hover:bg-boundary"
+                    ? "text-white border-accent"
+                    : "text-muted border-transparent hover:text-white hover:border-accent"
                 }`}
               >
                 {page}

@@ -23,14 +23,14 @@ export default function HomePage() {
               <FadeUp delay={0.05}>
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-6 h-px bg-accent" />
-                  <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em]">UCR Cricket Club · Riverside</span>
+                  <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em]">UC Riverside Cricket Team</span>
                 </div>
               </FadeUp>
 
               <FadeUp delay={0.12}>
                 <h1 className="font-display leading-none mb-6">
-                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-white">PLAY</span>
-                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-accent">HARD.</span>
+                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-white">GRIND.</span>
+                  <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-accent">HUSTLE.</span>
                   <span className="block text-[5rem] md:text-[7rem] lg:text-[8.5rem] text-white">WIN.</span>
                 </h1>
               </FadeUp>
@@ -47,7 +47,7 @@ export default function HomePage() {
                     href="/roster"
                     className="inline-block bg-accent text-pitch font-bold uppercase tracking-[0.15em] text-sm px-8 py-4 hover:bg-accent-dim transition-all duration-200 active:scale-[0.98]"
                   >
-                    Meet The Team
+                    Meet The Squad
                   </Link>
                   <Link
                     href="/sponsor"
