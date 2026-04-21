@@ -2,21 +2,31 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/stagger";
 import { FadeUp } from "@/components/ui/fade-up";
 
 export default function RosterPage() {
+  // Right Hand Batsman
+  // Left Hand Batsman
+  
+  // Right Arm (Medium, Fast)
+  // Right Arm Off Spin
+  // Right Arm Leg Spin
+  // Left Arm (Medium, Fast)
+  // Left Arm Orthodox
+  // Left Arm Chinaman
+
   const allPlayers = [
-    { name: "Khrish Patel", role: "Captain", spec: "Batsman / Wicket Keeper" },
-    { name: "Tarun Vadapalli", role: "Vice Captain", spec: "All-Rounder" },
-    { name: "Abhi Tatavarty", role: "Batsman", spec: "Right Arm. Unorthodox Spinner" },
-    { name: "Siddharth Thatavarthy", role: "All-Rounder", spec: "Right Arm Batsman + Right Hand Off Spinner" },
-    { name: "Ilhaan Abdullah", role: "All-Rounder", spec: "Right Hand Batsman" },
-    { name: "Himanshu Rao", role: "All Rounder", spec: "Right Hand Batsman. Right Hand Fast Bowler" },
-    { name: "Muhammad Hassan", role: "All Rounder", spec: "Bowler" },
-    { name: "Shriyansh Annam", role: "Bowler", spec: "Medium Pacer" },
-    { name: "Dev Bhakta", role: "Bowler", spec: "Unorthodox Spinner" },
-    { name: "Yash Samineni", role: "All Rounder", spec: "Left Arm Fast Bowler" },
-    { name: "Aaditya Arora ", role: "Batsman", spec: "Right Arm Batsman" },
-    { name: "Kunal Das,", role: "All Rounder", spec: "Batsman. Right Arm Medium Pace" },
+    { name: "Khrish Patel", role: "Captain", spec: "Right Hand Batsman / Wicket Keeper" },
+    { name: "Tarun Vadapalli", role: "Vice Captain", spec: "Right Hand Batsman / Right Arm Medium" },
+    { name: "Abhi Tatavarty", role: "Batsman", spec: "Right Hand Batsman / Right Arm Medium" },
+    { name: "Siddharth Thatavarthy", role: "All-Rounder", spec: "Right Hand Batsman / Right Arm Off Spin" },
+    { name: "Ilhaan Abdullah", role: "All-Rounder", spec: "Right Hand Batsman / Right Arm Off Spin" },
+    { name: "Himanshu Rao", role: "All Rounder", spec: "Right Hand Batsman / Right Arm Medium" },
+    { name: "Muhammad Hassan", role: "All Rounder", spec: "Right Hand Batsman / Right Arm Medium" },
+    { name: "Shriyansh Annam", role: "Bowler", spec: "Right Arm Medium" },
+    { name: "Dev Bhakta", role: "Bowler", spec: "Right Arm Medium" },
+    { name: "Yash Samineni", role: "All Rounder", spec: "Left Hand Batsman / Right Arm Medium" },
+    { name: "Aaditya Arora ", role: "Batsman", spec: "Right Hand Batsman" },
+    { name: "Kunal Das,", role: "All Rounder", spec: "Right Hand Batsman / Right Arm Medium" },
     { name: "Vishv Mepani", role: "Batsman", spec: "Right Hand Batsman" },
-    { name: "Aditya Saptarshi", role: "Bowler", spec: "Left Hand Leg Spinner" },
+    { name: "Aditya Saptarshi", role: "Bowler", spec: "Right Arm Leg Spin" },
   ];
 
   return (
