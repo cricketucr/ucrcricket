@@ -1,5 +1,5 @@
 import { createClient } from "@pulse/lib/supabase/server";
-import type { GroupMember, VoteValue } from "@pulse/lib/types";
+import type { GroupJoinRequest, GroupMember, VoteValue } from "@pulse/lib/types";
 import { isEventLockedAt } from "@pulse/lib/events";
 
 type DbVoteRow = {
@@ -63,7 +63,14 @@ export async function getGroupWithMembers(groupId: string) {
   const supabase = await createClient();
   const referenceTimeMs = Date.now();
 
-  const [{ data: group }, { data: members }, { data: invites }, { data: events }, { data: membershipHistory }] =
+  const [
+    { data: group },
+    { data: members },
+    { data: invites },
+    { data: joinRequests },
+    { data: events },
+    { data: membershipHistory },
+  ] =
     await Promise.all([
       supabase.from("groups").select("id, name, created_by, created_at").eq("id", groupId).maybeSingle(),
       supabase
@@ -76,6 +83,12 @@ export async function getGroupWithMembers(groupId: string) {
         .select("id, group_id, token, expires_at, created_by, created_at")
         .eq("group_id", groupId)
         .order("created_at", { ascending: false }),
+      supabase
+        .from("group_join_requests")
+        .select("id, group_id, user_id, status, created_at, reviewed_at, reviewed_by, profiles(id, name)")
+        .eq("group_id", groupId)
+        .eq("status", "pending")
+        .order("created_at", { ascending: true }),
       supabase
         .from("events")
         .select(
@@ -177,6 +190,7 @@ export async function getGroupWithMembers(groupId: string) {
     group,
     members: members ?? [],
     invites: invites ?? [],
+    joinRequests: (joinRequests ?? []) as GroupJoinRequest[],
     events: sortedEvents,
     referenceTimeMs,
   };

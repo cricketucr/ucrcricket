@@ -21,6 +21,19 @@ export type GroupMember = {
   profiles?: Profile | null;
 };
 
+export type GroupJoinRequestStatus = "pending" | "approved" | "denied";
+
+export type GroupJoinRequest = {
+  id: string;
+  group_id: string;
+  user_id: string;
+  status: GroupJoinRequestStatus;
+  created_at: string;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  profiles?: Profile | Array<Profile> | null;
+};
+
 export type Event = {
   id: string;
   group_id: string;

@@ -116,6 +116,17 @@ export function GroupRealtimeSync({
         },
         onGroupScopedChange,
       );
+
+      channel.on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "group_join_requests",
+          filter: `group_id=eq.${groupId}`,
+        },
+        onGroupScopedChange,
+      );
     }
 
     if (includeVotes) {

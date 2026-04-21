@@ -24,7 +24,7 @@ export default async function GroupPage({ params }: GroupPageProps) {
   const { groupId } = await params;
 
   const membership = await getGroupMembership(groupId, user.id);
-  if (!membership) redirect("/pulse/dashboard?reason=not-group-member");
+  if (!membership) redirect(`/pulse/groups/${groupId}/request-access`);
 
   const groupData = await getGroupWithMembers(groupId);
   if (!groupData) notFound();

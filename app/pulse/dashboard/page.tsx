@@ -16,6 +16,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const memberships = await getUserGroups(user.id);
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const showNotMemberMessage = resolvedSearchParams?.reason === "not-group-member";
+  const showJoinRequestSubmitted = resolvedSearchParams?.reason === "join-request-submitted";
 
   return (
     <>
@@ -23,6 +24,12 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
       {showNotMemberMessage ? (
         <TimedToast
           message="Access denied, you are not a member of that group. If you think this is a mistake, please contact a group admin."
+          clearQueryParamOnHide="reason"
+        />
+      ) : null}
+      {showJoinRequestSubmitted ? (
+        <TimedToast
+          message="Your join request was sent. A group admin can now approve or deny it."
           clearQueryParamOnHide="reason"
         />
       ) : null}

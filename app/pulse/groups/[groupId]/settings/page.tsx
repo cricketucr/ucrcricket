@@ -5,6 +5,7 @@ import { GroupRealtimeSync } from "@pulse/components/group/group-realtime-sync";
 import { requireProfile, requireUser } from "@pulse/lib/auth/session";
 import { DeleteGroupForm } from "@pulse/components/group/delete-group-form";
 import { InvitePanel } from "@pulse/components/group/invite-panel";
+import { JoinRequestsPanel } from "@pulse/components/group/join-requests-panel";
 import { MemberList } from "@pulse/components/group/member-list";
 import { TopNav } from "@pulse/components/top-nav";
 import { Card } from "@pulse/components/ui/card";
@@ -19,7 +20,7 @@ export default async function GroupSettingsPage({ params }: GroupSettingsPagePro
   const { groupId } = await params;
 
   const membership = await getGroupMembership(groupId, user.id);
-  if (!membership) redirect("/pulse/dashboard?reason=not-group-member");
+  if (!membership) redirect(`/pulse/groups/${groupId}/request-access`);
   if (membership.role !== "admin") redirect(`/pulse/groups/${groupId}`);
 
   const groupData = await getGroupWithMembers(groupId);
@@ -43,6 +44,7 @@ export default async function GroupSettingsPage({ params }: GroupSettingsPagePro
 
         <section className="grid gap-3 lg:grid-cols-2">
           <InvitePanel groupId={groupId} isAdmin invites={groupData.invites} />
+          <JoinRequestsPanel groupId={groupId} requests={groupData.joinRequests} />
           <MemberList groupId={groupId} currentUserId={user.id} isAdmin members={groupData.members} />
         </section>
 
