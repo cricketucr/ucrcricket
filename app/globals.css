@@ -1,6 +1,48 @@
 @import "tailwindcss";
 
-body {
-  background-color: #020617;
-  color: white;
+@theme {
+  --color-accent: #E8FF00;
+  --color-accent-dim: #c5d800;
+  --color-pitch: #080808;
+  --color-crease: #131313;
+  --color-boundary: #1c1c1c;
+  --color-line: #262626;
+  --color-muted: #888888;
+  --color-success: #00E87A;
+  --color-pulse-warning: #FF9900;
+  --color-danger: #FF3333;
 }
+
+body {
+  background-color: #080808;
+  color: white;
+  font-family: var(--font-barlow), 'Barlow', sans-serif;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* Grain texture overlay for depth */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #262626; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #E8FF00; }
+
+/* Selection color */
+::selection { background: #E8FF00; color: #080808; }

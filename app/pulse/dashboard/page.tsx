@@ -26,11 +26,14 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
           clearQueryParamOnHide="reason"
         />
       ) : null}
-      <main className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6">
+      <main className="mx-auto w-full max-w-5xl space-y-8 px-4 py-8">
         <section className="flex flex-wrap items-end justify-between gap-3">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-white">Your groups</h1>
-            <p className="text-sm text-slate-400">Create a group, invite people, and run polls on upcoming events.</p>
+          <div className="space-y-1">
+            <div className="flex items-center gap-3">
+              <div className="w-0.5 h-8 bg-accent" />
+              <h1 className="font-display text-3xl tracking-wider text-white">YOUR GROUPS</h1>
+            </div>
+            <p className="text-xs text-muted uppercase tracking-widest pl-3.5">Create a group · invite people · run polls</p>
           </div>
           <NewGroupModal />
         </section>
@@ -38,7 +41,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
         <section className="grid gap-3 sm:grid-cols-2">
           {memberships.length === 0 ? (
             <Card className="sm:col-span-2">
-              <p className="text-sm text-slate-400">No groups yet. Create one or ask an admin to share an invite link.</p>
+              <p className="text-xs text-muted uppercase tracking-widest">No groups yet. Create one or ask an admin to share an invite link.</p>
             </Card>
           ) : null}
           {memberships.map((membership) => {

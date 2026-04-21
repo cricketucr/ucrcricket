@@ -6,11 +6,11 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const VARIANT_STYLES: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-amber-500 text-slate-900 hover:bg-amber-400 active:bg-amber-600 focus-visible:ring-amber-400",
+    "bg-accent text-pitch hover:bg-accent-dim active:bg-accent/80 focus-visible:ring-accent font-bold uppercase tracking-[0.1em]",
   secondary:
-    "bg-slate-800 text-white border border-slate-700 hover:bg-slate-700 active:bg-slate-600 focus-visible:ring-slate-500",
-  ghost: "text-slate-300 hover:bg-slate-800 active:bg-slate-700 focus-visible:ring-slate-500",
-  danger: "bg-red-600 text-white hover:bg-red-500 active:bg-red-700 focus-visible:ring-red-400",
+    "bg-transparent text-white border border-line hover:border-accent/50 hover:text-accent active:bg-boundary focus-visible:ring-accent/50",
+  ghost: "text-muted hover:text-white hover:bg-boundary active:bg-line focus-visible:ring-line",
+  danger: "bg-danger text-white hover:bg-danger/80 active:bg-danger/70 focus-visible:ring-danger",
 };
 
 export function Button({
@@ -23,7 +23,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex cursor-pointer items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100",
+        "inline-flex cursor-pointer items-center justify-center px-4 py-2 text-sm font-medium transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100",
         VARIANT_STYLES[variant],
         className,
       )}

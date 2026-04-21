@@ -44,16 +44,19 @@ export function TimedToast({
 
   return (
     <div
-      className={`fixed left-1/2 top-4 z-50 w-[min(90vw,32rem)] -translate-x-1/2 rounded-lg border border-amber-300 bg-amber-50 shadow-lg transition-opacity duration-500 ${
+      className={`fixed left-1/2 top-4 z-50 w-[min(90vw,32rem)] -translate-x-1/2 border border-line bg-crease shadow-2xl shadow-black/50 transition-opacity duration-500 ${
         isFading ? "opacity-0" : "opacity-100"
       }`}
       role="status"
       aria-live="polite"
     >
-      <p className="px-4 py-3 text-sm text-amber-900">{message}</p>
-      <div className="h-1 w-full overflow-hidden rounded-b-lg bg-amber-100">
+      <div className="flex items-start gap-3 px-4 py-3">
+        <div className="w-0.5 h-full min-h-4 bg-accent shrink-0 mt-0.5" />
+        <p className="text-sm text-white leading-relaxed">{message}</p>
+      </div>
+      <div className="h-0.5 w-full overflow-hidden bg-boundary">
         <div
-          className="h-full bg-amber-500 transition-[width] ease-linear"
+          className="h-full bg-accent transition-[width] ease-linear"
           style={{ width: progressWidth, transitionDuration: `${durationMs}ms` }}
         />
       </div>
