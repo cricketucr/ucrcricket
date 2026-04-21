@@ -103,21 +103,24 @@ export default function HomePage() {
       </div>
 
       {/* Leadership */}
-      <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
-        <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
-            <div className="w-1 h-10 bg-accent" />
-            <div>
-              <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">The People Behind It</p>
-              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wider">LEADERSHIP</h2>
+      <div className="w-full bg-pitch">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <FadeUp>
+            <div className="flex items-center gap-4 mb-14">
+              <div className="w-1 h-10 bg-accent" />
+              <div>
+                <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">The People Behind It</p>
+                <h2 className="font-display text-4xl md:text-5xl text-white tracking-wider">LEADERSHIP</h2>
+              </div>
             </div>
-          </div>
-        </FadeUp>
+          </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-line">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-px w-full">
           {[
             { name: "Khrish Patel", role: "Captain" },
             { name: "Tarun Vadapalli", role: "Vice Captain" },
+            { name: "Himanshu Rao", role: "Walk On Captain" },
+            { name: "Yash Samineni", role: "Walk On Captain" },
             { name: "Siddharth Thatavarthy", role: "Secretary" },
             { name: "Jia Panchal", role: "Team Manager" },
             { name: "Advaith Tontalapur", role: "Developer / Photographer" },
@@ -125,12 +128,12 @@ export default function HomePage() {
             { name: "YogaShikhar Marella", role: "Editor" },
           ].map((leader, idx) => (
             <StaggerItem key={idx}>
-              <div className="group bg-pitch p-8 hover:bg-crease transition-all duration-300 cursor-default relative overflow-hidden">
+              <div className="group bg-pitch p-8 hover:bg-crease transition-all duration-300 cursor-default relative">
                 <div className="absolute left-0 top-0 bottom-0 w-0 bg-accent group-hover:w-1 transition-all duration-300" />
                 <div className="w-16 h-16 bg-boundary border border-line flex items-center justify-center text-2xl mb-5 group-hover:border-accent/50 transition-all duration-300">
                   👤
                 </div>
-                <h3 className="font-display text-2xl text-white tracking-wide mb-1 group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-display text-xl md:text-2xl text-white tracking-wide mb-1 group-hover:text-accent transition-colors duration-300">
                   {leader.name}
                 </h3>
                 <p className="text-muted text-xs uppercase tracking-[0.2em] font-semibold">{leader.role}</p>
@@ -138,6 +141,7 @@ export default function HomePage() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+        </div>
       </div>
     </div>
   );
