@@ -1,6 +1,8 @@
 import { StaggerContainer, StaggerItem } from "@/components/ui/stagger";
 import { FadeUp } from "@/components/ui/fade-up";
 
+export const dynamic = "force-dynamic";
+
 export default function RosterPage() {
   // Right Hand Batsman
   // Left Hand Batsman
@@ -29,6 +31,8 @@ export default function RosterPage() {
     { name: "Aditya Saptarshi", role: "Bowler", spec: "Right Arm Leg Spin" },
   ];
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="min-h-screen bg-pitch py-16 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
@@ -36,7 +40,7 @@ export default function RosterPage() {
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-12 bg-accent" />
             <div>
-              <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">Season 2026</p>
+              <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">Season {currentYear}</p>
               <h1 className="font-display text-5xl md:text-6xl text-white tracking-wider">TEAM ROSTER</h1>
             </div>
           </div>
