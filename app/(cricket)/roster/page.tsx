@@ -36,7 +36,7 @@ export default function RosterPage() {
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-12 bg-accent" />
             <div>
-              <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">Season 2025</p>
+              <p className="text-accent text-xs uppercase tracking-[0.25em] font-semibold mb-1">Season 2026</p>
               <h1 className="font-display text-5xl md:text-6xl text-white tracking-wider">TEAM ROSTER</h1>
             </div>
           </div>
